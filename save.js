@@ -16,5 +16,5 @@ function Get() {
     }
 }
 function HardReset() {
-    localStorage.setItem("highscore", JSON.stringify((99999)));
+    localStorage.clear()
 }
