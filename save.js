@@ -10,8 +10,8 @@ function Get() {
         const highscorenumbersave = localStorage.getItem("highscore");
         if (highscorenumbersave) {
             player.highscorenumber = JSON.parse(highscorenumbersave)
-            let highscorenumbersave2 = JSON.parse(highscorenumbersave)
-            highscore.textContent = `Lowest Time: ${highscorenumbersave2} s`
+            highscore.textContent = `Lowest Time: ${player.highscorenumber} s`
+            highscore.textContent = `Lowest Time: ${player.highscorenumber.toFixed(2)} s`
         }
     }
 }
