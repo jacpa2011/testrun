@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: lightskyblue;
-    font-size: large;
+    font-size: xx-large;
 }
 div {
     text-align: center;
@@ -19,4 +19,27 @@ div input[type=text] {
     margin: 8px 0;
     padding: 8px;
     font-family: monospace;
+}
+
+div button[id=restart] {
+    margin: 20px 0;
+    padding: 20px;
+    font-family: monospace;
+    background-color: rgb(107, 162, 196);
+    border:2px rgb(120, 179, 216);
+    border-radius: 100px
+}
+#highscore {
+    opacity: 50%;
+}
+#hardreset {
+    position: absolute;
+    bottom: 10;
+    left: 25;
+    margin: 20px 0;
+    padding: 20px;
+    font-family: monospace;
+    background-color: rgb(218, 45, 6);
+    border:2px rgb(139, 29, 5);
+    border-radius: 100px
 }
