@@ -3,9 +3,14 @@ let incrementcounter = 0
 const Input1 = document.getElementById("input")
 const restart = document.getElementById("restart")
 const highscore = document.getElementById("highscore")
+const averagehighscore = document.getElementById("averagehighscore")
+let averagehighscoreoutput = 0
+const reversehighscore = document.getElementById("reversehighscore")
 const hardreset = document.getElementById("hardreset")
 player = {
     highscorenumber: 99999
+    ,reverse_highscorenumber: -1
+    ,averagehighscoreraw: []
 }
 
 
@@ -24,6 +29,13 @@ function loop() {
             highscore.textContent = `Lowest Time: ${count.textContent}`
             player.highscorenumber = incrementcounter
             }
+            else {
+                if (incrementcounter > player.reverse_highscorenumber) {
+                    reversehighscore.textContent = `Highest Time: ${count.textContent}`
+                    player.reverse_highscorenumber = incrementcounter
+                }
+            }
+            calculateaveragefunction(incrementcounter)
             Save()
             clearInterval(loopconst)
         }
@@ -47,3 +59,14 @@ hardreset.addEventListener("click", function(){
         location.reload(true)
     }
 })
+
+function calculateaveragefunction(c) {
+    if (c) {
+    player.averagehighscoreraw.push(c)
+    }
+    let averagehighscoreoutput = 0
+    player.averagehighscoreraw.forEach(x => {
+        averagehighscoreoutput += x
+    });
+    averagehighscoreoutput = (averagehighscoreoutput)/player.averagehighscoreraw.length
+    averagehighscore.textContent = `Average Time: ${averagehighscoreoutput.toFixed(2)} s`}

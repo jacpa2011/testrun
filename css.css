@@ -23,23 +23,36 @@ div input[type=text] {
 
 div button[id=restart] {
     margin: 20px 0;
-    padding: 20px;
+    padding: 17px;
     font-family: monospace;
     background-color: rgb(107, 162, 196);
-    border:2px rgb(120, 179, 216);
-    border-radius: 100px
+    border:3px solid rgb(84, 122, 146);
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
 }
 #highscore {
     opacity: 50%;
 }
-#hardreset {
+
+#reversehighscore {
+    opacity: 50%;
+}
+
+#averagehighscore {
+    opacity: 50%;
+}
+
+#hardreset {    
     position: absolute;
     bottom: 10;
     left: 25;
     margin: 20px 0;
-    padding: 20px;
+    padding: 17px;
     font-family: monospace;
     background-color: rgb(218, 45, 6);
-    border:2px rgb(139, 29, 5);
-    border-radius: 100px
+    border:3px solid rgb(103, 22, 4);
+    border-radius: 100px;
+    cursor: pointer;
+    color: white;
 }
