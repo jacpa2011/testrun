@@ -28,6 +28,10 @@ function loop() {
             if (incrementcounter < player.highscorenumber) {
             highscore.textContent = `Lowest Time: ${count.textContent}`
             player.highscorenumber = incrementcounter
+            if (incrementcounter > player.reverse_highscorenumber) {
+                reversehighscore.textContent = `Highest Time: ${count.textContent}`
+                player.reverse_highscorenumber = incrementcounter
+            }
             }
             else {
                 if (incrementcounter > player.reverse_highscorenumber) {
