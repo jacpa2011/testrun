@@ -1,34 +1,76 @@
-const MoneyLabel = document.querySelector("#Money")
-const WaterBuy = document.querySelector("#buywater")
-const WaterAmount = document.querySelector("#wateramount")
-const WaterSell = document.querySelector("#sellwater")
-const WaterReturn = document.querySelector("#returnwater")
-
-let player = {
-    money: new Decimal(0.5),
-    water: {
-        amount: new Decimal(0),
-        sell: new Decimal(0.4)
-    }
+const count = document.querySelector("#counter");
+let incrementcounter = 0
+const Input1 = document.getElementById("input")
+const restart = document.getElementById("restart")
+const highscore = document.getElementById("highscore")
+const averagehighscore = document.getElementById("averagehighscore")
+let averagehighscoreoutput = 0
+const reversehighscore = document.getElementById("reversehighscore")
+const hardreset = document.getElementById("hardreset")
+player = {
+    highscorenumber: 99999
+    ,reverse_highscorenumber: -1
+    ,averagehighscoreraw: []
 }
 
-setInterval(function() {
-    MoneyLabel.textContent = `\u20ac${parseFloat(format(player.money)).toFixed(2)}`
-    WaterAmount.textContent = `You have  ${player.water.amount} water bottle(s)`
-    WaterReturn.textContent = `Returns: \u20ac${player.water.sell}`
+
+function loop() {
+    loopconst = 
+        setInterval(function() {
+        if (Input1.value != 123) {
+            incrementcounter = incrementcounter + 1/50
+            count.textContent = `${incrementcounter.toFixed(2)} s` 
+            restart.hidden = true
+        } 
+        else {
+            Input1.hidden = true
+            restart.hidden = false
+            if (incrementcounter < player.highscorenumber) {
+            highscore.textContent = `Lowest Time: ${count.textContent}`
+            player.highscorenumber = incrementcounter
+            if (incrementcounter > player.reverse_highscorenumber) {
+                reversehighscore.textContent = `Highest Time: ${count.textContent}`
+                player.reverse_highscorenumber = incrementcounter
+            }
+            }
+            else {
+                if (incrementcounter > player.reverse_highscorenumber) {
+                    reversehighscore.textContent = `Highest Time: ${count.textContent}`
+                    player.reverse_highscorenumber = incrementcounter
+                }
+            }
+            calculateaveragefunction(incrementcounter)
+            Save()
+            clearInterval(loopconst)
+        }
 }, 20)
+}
+loop()
 
-WaterSell.addEventListener("click", function() {
-    if (player.water.amount.gte(new Decimal(0.1))) {
-        player.water.amount = player.water.amount.sub(1)
-        player.money = player.money.add(player.water.sell)
+restart.addEventListener("click", function() {
+    Input1.hidden = false
+    restart.hidden = true
+    Input1.value = ""
+    incrementcounter = 0
+    count.textContent = `${incrementcounter.toFixed(2)} s`
+    Save() 
+    loop()
+})
+
+hardreset.addEventListener("click", function(){
+    if (confirm('Are you sure you want to Hard Reset? (all scores will be gone!)')) {
+        HardReset()
+        location.reload(true)
     }
 })
 
-WaterBuy.addEventListener("click", function() {
-    if (player.money.gte(0.3)) {
-        player.money = player.money.sub(0.3)
-        player.water.amount = player.water.amount.add(1)
+function calculateaveragefunction(c) {
+    if (c) {
+    player.averagehighscoreraw.push(c)
     }
-})
-a
+    let averagehighscoreoutput = 0
+    player.averagehighscoreraw.forEach(x => {
+        averagehighscoreoutput += x
+    });
+    averagehighscoreoutput = (averagehighscoreoutput)/player.averagehighscoreraw.length
+    averagehighscore.textContent = `Average Time: ${averagehighscoreoutput.toFixed(2)} s`}
