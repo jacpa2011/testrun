@@ -2,57 +2,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: monospace;
 }
+
 
 body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightskyblue;
+    background-color: rgb(58, 58, 58);
     font-size: xx-large;
-}
-div {
-    text-align: center;
-}
-div input[type=text] {
-    margin: 8px 0;
-    padding: 8px;
-    font-family: monospace;
+    justify-content: center;
 }
 
-div button[id=restart] {
-    margin: 20px 0;
-    padding: 17px;
-    font-family: monospace;
-    background-color: rgb(107, 162, 196);
-    border:3px solid rgb(84, 122, 146);
-    border-radius: 100px;
+
+div[id="MoneyLabel"] {
+    display: flex;
     color: white;
+    font-family: monospace;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+pre {
+    display: flex;
+}
+
+button[id="buywater"] {
     cursor: pointer;
-}
-#highscore {
-    opacity: 50%;
-}
-
-#reversehighscore {
-    opacity: 50%;
-}
-
-#averagehighscore {
-    opacity: 50%;
-}
-
-#hardreset {    
     position: absolute;
-    bottom: 10;
-    left: 25;
-    margin: 20px 0;
-    padding: 17px;
-    font-family: monospace;
-    background-color: rgb(218, 45, 6);
-    border:3px solid rgb(103, 22, 4);
-    border-radius: 100px;
-    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 200px;
+    padding: 20px;
+    background-color: transparent;
     color: white;
+    border: 2px solid white;
+}
+
+#buywaterelse {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 240px;
+    color: white;
+    font-size: medium;
+    padding: 20px
+}
+
+button[id="sellwater"] {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 300px;
+    padding: 20px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+#returnwater {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 340px;
+    color: white;
+    font-size: medium;
+    padding: 20px;
 }
